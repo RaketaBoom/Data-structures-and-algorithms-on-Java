@@ -1,3 +1,5 @@
+package Apps;
+
 import dataStructures.Queue;
 
 public class QueueApp {

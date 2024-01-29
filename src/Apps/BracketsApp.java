@@ -1,3 +1,5 @@
+package Apps;
+
 import dataStructures.BracketChecker;
 
 import java.io.BufferedReader;

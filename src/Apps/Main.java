@@ -1,3 +1,5 @@
+package Apps;
+
 import dataStructures.*;
 import dataStructures.Sorts.ArrBubbleSort;
 import dataStructures.Sorts.ArrInsertionSort;

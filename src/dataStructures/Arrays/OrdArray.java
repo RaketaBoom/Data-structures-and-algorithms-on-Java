@@ -1,4 +1,4 @@
-package dataStructures;
+package dataStructures.Arrays;
 
 public class OrdArray {
     private long[] a;

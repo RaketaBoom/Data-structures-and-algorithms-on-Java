@@ -1,4 +1,4 @@
-package dataStructures;
+package dataStructures.Arrays;
 // Класс массива с низкоуровневневым интерфейсом
 public class LowArray {
     private long[] a; // Ссылка на массив

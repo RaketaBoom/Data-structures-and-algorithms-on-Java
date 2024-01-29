@@ -1,6 +1,6 @@
 package dataStructures.Sorts;
 
-import dataStructures.HighArray;
+import dataStructures.Arrays.HighArray;
 
 public class ArrSelectionSort extends HighArray {
 

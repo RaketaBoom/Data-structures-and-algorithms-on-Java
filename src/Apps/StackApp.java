@@ -1,3 +1,5 @@
+package Apps;
+
 import dataStructures.StackX;
 
 public class StackApp {

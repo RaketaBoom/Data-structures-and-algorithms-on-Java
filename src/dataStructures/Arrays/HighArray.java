@@ -1,4 +1,4 @@
-package dataStructures;
+package dataStructures.Arrays;
 // Класс массива с низкоуровневневым интерфейсом
 public class HighArray {
     protected long[] a;

@@ -1,6 +1,6 @@
 package dataStructures.Sorts;
 
-import dataStructures.HighArray;
+import dataStructures.Arrays.HighArray;
 
 public class ArrBubbleSort extends HighArray {
     public ArrBubbleSort(int max) {
