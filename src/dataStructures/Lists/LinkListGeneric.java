@@ -1,10 +1,11 @@
 package dataStructures.Lists;
 
+
 import data.Id_key;
 
-public class LinkList
+public class LinkListGeneric<T extends Id_key>
 {
-    private Link first;
+    private LinkPP<T> first;
     //------------------------------
     public void LinkList()
     {
@@ -16,17 +17,16 @@ public class LinkList
         return (first==null);
     }
     //------------------------------
-
-    public void insertFirst(int id, double dd)
+    public void insertFirst(T d)
     {
-        Link newLink = new Link(id, dd);
-        newLink.next = first;
-        first = newLink;
+        LinkPP<T> newLinkPP = new LinkPP(d);
+        newLinkPP.next = first;
+        first = newLinkPP;
     }
     //------------------------------
-    public Link deleteFirst()
+    public T deleteFirst()
     {
-        Link temp = first;
+        T temp = first.data;
         first = first.next;
         return temp;
     }
@@ -34,7 +34,7 @@ public class LinkList
     public void displayList()
     {
         System.out.print("List (first --> last): ");;
-        Link current = first;
+        LinkPP<T> current = first;
         while(current != null)
         {
             current.displayLink();
@@ -43,24 +43,24 @@ public class LinkList
         System.out.println();
     }
     //------------------------------
-    public Link find(int key)
+    public T find (int id)
     {
-        Link current = first;
-        while(current.iData != key)
+        LinkPP<T> current = first;
+        while (current.data.getId() != id)
         {
             if (current.next == null)
                 return null;
             else
                 current = current.next;
         }
-        return current;
+        return current.data;
     }
 
-    public Link delete (int id)
+    public T delete (int id)
     {
-        Link curr = first;
-        Link prev = first;
-        while(curr.iData != id) {
+        LinkPP<T> curr = first;
+        LinkPP<T> prev = first;
+        while(curr.data.getId() != id) {
             if (curr.next == null)
                 return null;
             else {
@@ -73,7 +73,7 @@ public class LinkList
             first = first.next;
         else
             prev.next = curr.next;
-        return curr;
+        return curr.data;
 
     }
     //------------------------------

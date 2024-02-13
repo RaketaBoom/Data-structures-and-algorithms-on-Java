@@ -1,18 +1,17 @@
 package dataStructures.Lists;
 
-class  Link <T> {
-    T data;
-    Link<T> next;
+public class Link {
+    public int iData;
+    public double dData;
+    public Link next;
     //-------------------------------------
-    Link(T d){
-        data = d;
+    public Link(int id, double dd)
+    {
+        iData = id;
+        dData = dd;
     }
     //-------------------------------------
     void displayLink(){
-        System.out.print("{" + data + "} ");
+        System.out.print("{" + iData + ", " + dData + "} ");
     }
 }
-/*
-* В данном случае я решил дать полям package-private доступ,
-* Чтобы LinkList мог манипулировать данными свободно
-* */

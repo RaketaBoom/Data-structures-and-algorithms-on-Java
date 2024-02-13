@@ -25,6 +25,24 @@ public class OrdArray {
         return -1;
     }
 
+    private int ReqBinSearch(long SearchKey, int lowBound, int upBound){
+        int middle = (lowBound + upBound) / 2;
+        if(a[middle] == SearchKey){
+            return middle;
+        }
+        else if(lowBound > upBound){
+            return nElems;
+        }
+        else{
+            if(a[middle] < SearchKey){
+                return ReqBinSearch(SearchKey, middle+1, upBound);
+            }
+            else{
+                return ReqBinSearch(SearchKey, lowBound, middle-1);
+            }
+        }
+    }
+
     public int find (long SearchKey){
         return binary_search(SearchKey, 0, nElems-1);
     }
