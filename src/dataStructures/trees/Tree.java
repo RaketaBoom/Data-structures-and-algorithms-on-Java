@@ -77,12 +77,31 @@ public class Tree {
         return last;
     }
 
+    // Подразумевается, что имеется правый потомок
+    private Node getSuccessor(Node King){
+        Node current = King.rightChild; // Сразу делаем шаг вправо
+        Node child = King;
+        Node parent = King;
+
+        while(current != null){  // Ищем минимальное
+            parent = child;
+            child = current;
+            current = current.leftChild;
+        }
+
+        if(child != King.rightChild){ // Если преемник не сын королю, то переназначаем связи
+            parent.leftChild = child.rightChild;
+            child.rightChild = King.rightChild;
+        }
+        return child;
+    }
+
 
     public boolean delete(int key){ // Удаление по ключу, предполагается, что дерево не пусто
         Node current = root;
         Node parent = root;
         boolean isLeftChild = true; // Глубокого смысла в нем нет, просто мы удаляем через родителя, нам нужно точно знать кого
-
+        // Характеристика родителя
         while(current.iData != key){ // Поиск узла по ключу
             parent = current;
             if (current.iData < key){
@@ -134,6 +153,20 @@ public class Tree {
         }
 
 
-        // Третий случай
+        // Третий случай. Два потомка. Проблема наследника
+
+        else{
+            Node successor = getSuccessor(current);
+
+            if(current == root)
+                root = successor;
+
+            else if (isLeftChild)
+                parent.leftChild = successor;
+            else
+                parent.rightChild = successor;
+            successor.leftChild = current.leftChild;
+        }
+        return true;
     }
 }
